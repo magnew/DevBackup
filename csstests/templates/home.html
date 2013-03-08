@@ -1,0 +1,26 @@
+{% load url from future %}
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS Integration Tests</title>
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}splunkjs/contrib/bootstrap.css" />
+</head>
+</head>
+<body>
+  <script>window.SPLUNKJS_STATIC_URL = "{{STATIC_URL}}";</script>
+  <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/require.js"></script>
+  <script src="{{SPLUNK_STATIC_URL}}splunkjs/config.js"></script>   
+  <div id="content">
+    <h3>Control test pages</h3>
+    <ul>
+      <p><a href="{% url 'csstests:bs' %}">Vanilla bootstrap</a></p>
+      <!-- <p><a href="{% url 'csstests:spl' %}">Splunkstrap</a></p> -->
+      <p><a href="{% url 'csstests:spl2' %}">Add a table</a></p>
+      <p><a href="{% url 'csstests:spl3' %}">Add Splunk Styles</a></p>
+    </ul>
+  </div>
+  <script>  
+  </script>
+</body>
+</html>
