@@ -8,4 +8,7 @@ urlpatterns = patterns('',
     url(r'^spl2/$', render('csstests:spl2.html'), name='spl2'),  
     url(r'^spl3/$', render('csstests:spl3.html'), name='spl3'),  
     url(r'^spl4/$', render('csstests:spl4.html'), name='spl4'),  
+    url(r'^pureBootstrap/$', render('csstests:pureBootstrap.html'), name='pureBootstrap'),  
+    url(r'^addSplunkTable/$', render('csstests:addSplunkTable.html'), name='addSplunkTable'),  
+    url(r'^idealMockup/$', render('csstests:idealMockup.html'), name='idealMockup'),  
 )

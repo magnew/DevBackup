@@ -4,57 +4,60 @@
 <head>
   <meta charset="utf-8">
   <title>CSS tests</title>
-  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}splunkjs/contrib/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="/en-US/static/css/bootstrap.css" />
-
 </head>
 <body>
   <script>window.SPLUNKJS_STATIC_URL = "{{STATIC_URL}}";</script>
   <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/require.js"></script>
-
   <!-- <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/bootstrap.js"></script>-->
-
   <style type="text/css">
-
+  
   #data-wrap{
-    height: 210;
+    height: 160;
+  }
+  .navbar .container{
+    width: 950px;
   }
 
   </style>
-     
-   <div class="row">
-          <div class="navbar">
-              <div class="navbar-inner">
-                  <a class="brand" href="#">CSS Tests (Matrix)</a>
-                  <ul class="nav">
-                    <li class="active"><a href="#">Base</a></li>
-                    <li><a href="#">Table</a></li>
-                    <li><a href="#">Style</a></li>
-                  </ul>
-                </div>
-              </div>
+   
+    <div class="row">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+              <a class="brand" href="#">CSS Tests (Matrix)</a>
+              <ul class="nav">
+                <li class="active"><a href="#">Base</a></li>
+                <li><a href="#">Table</a></li>
+                <li><a href="#">Style</a></li>
+              </ul>
           </div>
+        </div>
       </div>
+    </div>
+      
     <div class="container">
       <div class="row">
-        <div class="span5">
-          <h2>This page</h2>
-          <p>This page includes the splunk styles.</p>
-          <h3>Here's some long text</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+        <div class="span7">
+          <h2>Spunk Styles Added</h2>
+          <p>On this page we have included markup for a Bubbles-style table and the Splunk styles required to render it. Unfortunatly, since Spunk styles are based on Bootstrap and use the same class names, the styles the user was relying on are overwritten and non-Splunk-related parts of the page get re-styled as a side effect. For example, the <code>navbar</code> class style from the Splunk bootstrap is different from the <class>navbar</code> class style from standard bootstrap:</p>
+<pre>
+.navbar {
+  overflow: visible;
+  margin-bottom: 16px;
+  *position: relative;
+  *z-index: 2;
+}
+</pre>
+        <p>These style overrides are not limited to controls like the navbar. As you can see many fairly general styles are affected including those governing spacing and fonts.</p>
+        <p>Ideally, to address this problem Splunk styles would not have the same names as the standard Bootstrap names. For example <code>navbar</code> would be renamed to <code>spl-navbar</code>. This way our styles would effectively be namespaced and thus only applied to controls where we specifically intend them to be.</p>
+
         </div>
         <div class="span5">
-          <h4> Some sample data interactivity</h4>
-          <div id="data-wrap" >
-          <div class="row">
-            <div class="span3">
-              <form class="form-search">
-                  <input type="text" class="input-medium search-query">
-                  <button type="submit" class="btn">Search</button>
-              </form>
-            </div>
-          </div>
-          <div class="views-shared-resultstable" style="display: block; border:0px solid #000;">
+          <h4> Data table</h4>
+          <div id="data-wrap">
+           <div class="views-shared-resultstable" style="display: block; border:0px solid #000;">
             <div class="simpleResultsTableWrapper">
                 <table class="simpleResultsTable splTable table table-striped table-chrome enableMouseover">
                     <tbody>
@@ -119,29 +122,17 @@
                 </table>
               </div>
             </div>
+            </div>
+            <em>Here the table is created with Bubbles-style markup and Splunk styles.</em>
+            <p></br></p>
+            <h4>Here's some more sample text</h4>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
           </div>
-          <em>The data in this table is statically rendered but one could easily wire up a splunk result table here and have a live search.</em>
-           <p></br></p>
-           <h4>A list</h4>
-          <ul>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Nulla volutpat aliquam velit
-                <ul>
-                  <li>Phasellus iaculis neque</li>
-                  <li>Vestibulum laoreet porttitor sem</li>
-                  <li>Ac tristique libero volutpat at</li>
-                </ul>
-              </li>
-              <li>Faucibus porta lacus fringilla vel</li>
-              <li>Eget porttitor lorem</li>
-            </ul>
-        </div>
       </div>
       <div class="row">
-       <div class="span2 offset8">
-         <a href="{% url 'csstests:bs' %}" class="btn">Back</a>
-         <a href="{% url 'csstests:spl4' %}" class="btn btn-primary">Next</a>
+        <div class="span2 offset10">
+         <a href="{% url 'csstests:pureBootstrap' %}" class="btn ">Back</a>
+         <a href="{% url 'csstests:idealMockup' %}" class="btn btn-primary">Next</a>
         </div>
       </div>
     </div>

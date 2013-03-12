@@ -141,7 +141,10 @@ define(function(require, exports, module) {
                 });                   
             },
 
-            "check itemCount equals datasource results": function(done) {
+           
+        },
+        "Failing":{
+             "check itemCount equals datasource results": function(done) {
 
                 $('#hook').append("<div id='container7'></div>");
                 var table = splunkjs.mvc.Components.create("appfx-resulttable", "test-resulttable7", {

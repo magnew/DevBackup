@@ -1,0 +1,87 @@
+{% load url from future %}
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS tests</title>
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap.css" />
+</head>
+<body>
+  <script>window.SPLUNKJS_STATIC_URL = "{{STATIC_URL}}";</script>
+  <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/require.js"></script>
+  <!-- <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/bootstrap.js"></script>-->
+  <style type="text/css">
+  
+  #data-wrap{
+    height: 160;
+  }
+  .navbar .container{
+    width: 950px;
+  }
+
+  </style>
+   
+    <div class="row">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+              <a class="brand" href="#">CSS Tests (Matrix)</a>
+              <ul class="nav">
+                <li class="active"><a href="#">Base</a></li>
+                <li><a href="#">Table</a></li>
+                <li><a href="#">Style</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container">
+      <div class="row">
+        <div class="span7">
+          <h2>Ideal Solution</h2>
+          <p>This page is a mockup of the scenario we are shooting for - customer styles are preserved and the Splunk table gets the nice Bubbles styles. To achieve this, Splunk styles would not have the same names as the standard Bootstrap names. For example <code>navbar</code> would be renamed to <code>spl-navbar</code>.</p>
+<pre>
+.spl-navbar {
+  overflow: visible;
+  margin-bottom: 16px;
+  *position: relative;
+  *z-index: 2;
+}
+</pre>
+          <p>This way our styles would effectively be namespaced and thus only applied to controls where we specifically intend them to be. With this solution a standard Bootstrap navbar (or table or anything else) could be included in the page by using the standard class names, but the page could <b>also</b> include Splunk-style controls by using the explicit Splunk style names. So to get a Splunk navbar instead of a standard navbar markup would look like this:</p>
+<pre>
+  &lt;div class="spl-navbar"&gt;
+    &lt;div class="spl-navbar-inner"&gt;
+      ...
+</pre>
+
+        <p>Our controls - such as the table - would use the Splunk styles explicitly, allowing them to exist in the page side-by-side with elements styled with standard Bootstrap.</p>
+        
+        </div>
+        <div class="span5">
+          <h4> Data table</h4>
+          <div id="data-wrap">
+            <img src="{{STATIC_URL}}table.png">
+            </div>
+            <em>In this mockup this table is an image, but it shows what we would like to be able to create.</em>
+            <p></br></p>
+            <h4>Here's some more sample text</h4>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="span2 offset10">
+         <a href="{% url 'csstests:addSplunkTable' %}" class="btn ">Back</a>
+         <a href="{% url 'csstests:pureBootstrap' %}" class="btn btn-primary">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>  
+    // require(["splunkjs/ready!"], function() {
+        
+    // });
+  </script>
+</body>
+</html>

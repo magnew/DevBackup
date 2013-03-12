@@ -1,0 +1,114 @@
+{% load url from future %}
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS tests</title>
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap.css" />
+</head>
+<body>
+  <script>window.SPLUNKJS_STATIC_URL = "{{STATIC_URL}}";</script>
+  <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/require.js"></script>
+  <!-- <script src="{{SPLUNK_STATIC_URL}}splunkjs/contrib/bootstrap.js"></script>-->
+  <style type="text/css">
+  
+  #data-wrap{
+    height: 160;
+  }
+  .navbar .container{
+    width: 950px;
+  }
+
+  </style>
+   
+    <div class="row">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+              <a class="brand" href="#">CSS Tests (Matrix)</a>
+              <ul class="nav">
+                <li class="active"><a href="#">Base</a></li>
+                <li><a href="#">Table</a></li>
+                <li><a href="#">Style</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container">
+      <div class="row">
+        <div class="span7">
+          <h2>Bootstrap Page</h2>
+          <p>This page is laid out with standard Bootstrap. Font, spacing and look are dependent on the bootstrap library. Elements are styled by adding <code>class</code> attributes to them. For example the nav-bar at the top of the page is a <code>div</code> with class <code>navbar</code>:</p>
+<pre>
+  &lt;div class="navbar"&gt;
+    &lt;div class="navbar-inner"&gt;
+      ...
+</pre>
+          <p>When bootstrap css is included in the page, these standard classes are styled according to style rules defined there. For instance the <code>navbar</code> class has rules applied to it like this (from the included Bootstrap):</p>
+<pre>
+.navbar {
+  *position: relative;
+  *z-index: 2;
+  margin-bottom: 20px;
+  overflow: visible;
+}
+</pre>
+        <p>The table on this page is statically rendered, but we can imagine a customer wanting to include a Splunk result table instead. In order to render the result table, we need to add Splunk styles to the page.</p>
+        </div>
+        <div class="span5">
+          <h4> Data table</h4>
+          <div id="data-wrap">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Itay</td>
+                    <td>Neems</td>
+                    <td>@itaynee</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Marshall </td>
+                    <td>Agnew</td>
+                    <td>@magnew</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Paul</td>
+                    <td>Sanford</td>
+                    <td>@cptpaul</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <em>The data in this table is statically rendered but we would like to include a live Splunk result table here.</em>
+            <p></br></p>
+            <h4>Here's some more sample text</h4>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="span2 offset10">
+         <a href="{% url 'csstests:pureBootstrap' %}" class="btn disabled">Back</a>
+         <a href="{% url 'csstests:addSplunkTable' %}" class="btn btn-primary">Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>  
+    // require(["splunkjs/ready!"], function() {
+        
+    // });
+  </script>
+</body>
+</html>

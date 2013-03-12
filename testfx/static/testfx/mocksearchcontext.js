@@ -14,7 +14,7 @@ define(function(require, exports, module) {
     var FormsMockDataSource = require('./formsmockdatasource');
     var ChartMockDataSource = require('./chartmockdatasource');
     var GoogleMapDataSource = require('./googlemapmockdatasource');
-    var SearchModels = require('splunkjs/mvc/searchmodel');
+    var SearchModels    = require('splunkjs/mvc/searchmodel');
     
     var MockSearchContext = BaseContext.extend({
 

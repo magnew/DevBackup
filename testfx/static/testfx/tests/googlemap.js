@@ -48,9 +48,7 @@ define(function(require, exports, module) {
         },
         "Not yet implemented" : {
 
-            "map manipulation": function(done) {
-                done();                
-            },
+            //points show up
         }
     };
     
